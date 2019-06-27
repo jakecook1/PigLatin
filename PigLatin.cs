@@ -27,12 +27,13 @@ namespace PigLatin
 
         public void Convert(string fileName)
         {
-            var text = File.ReadAllText(fileName);
-            var words = text.Split(" ");
+            var lines = File.ReadAllLines(fileName);
 
-            var newText = GetPigLatin(words);
-
-            newText.WriteLine();
+            foreach (var line in lines)
+            {
+                // Split line into words and print pig latin to console
+                GetPigLatin(line.Split(" ")).WriteLine();
+            }
         }
 
         public string GetPigLatin(string[] words)
